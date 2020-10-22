@@ -6,12 +6,10 @@ const sh = require("shelljs");
 const octokit = new Octokit({
   auth: "ef21bfe5242681003f8f6c146aa51bb4821c6634",
 });
+let cretaeRepo = "Hello_Boss"
 
 async function createRepository(repoName) {
   try {
-    // const createRepo = await octokit.repos.createForAuthenticatedUser({
-    //   name: repoName,
-    // });
 
     const createRepo = await octokit.repos.get({
       owner: "satish6965",
@@ -20,11 +18,6 @@ async function createRepository(repoName) {
 
     await sh.cd("/Node_octokit");
     await sh.echo(sh.pwd());
-
-    // await git
-    //   .init()
-    //   .addRemote("origin", "https://github.com/satish6965/Hello_Saus.git")
-    //   .catch((err) => console.error(err));
 
     await git.add("octokitApi.js").then(
       (addSuccess) => {
@@ -70,4 +63,4 @@ async function createRepository(repoName) {
   }
 }
 
-createRepository("Hello_Saus");
+createRepository(cretaeRepo);
